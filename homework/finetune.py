@@ -170,8 +170,9 @@ def train(
 
     # Prepare datasets
     train_dataset = VQADataset(train_dataset_name, data_dir)
-
+    print('one')
     train_dataset = VQADatasetForTraining(train_dataset, processor)
+    print('two')
 
     if processor.tokenizer.pad_token is None:
         processor.tokenizer.pad_token = processor.tokenizer.eos_token
@@ -201,9 +202,11 @@ def train(
         train_dataset=train_dataset,
         data_collator=custom_data_collator,
     )
+    print('three')
 
     # Train the model
     trainer.train()
+    print('four')
 
     # Save the model
     trainer.save_model(output_dir)
